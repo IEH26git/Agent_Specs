@@ -11,15 +11,19 @@
 ### Phase 1: Domain and Workflow Selection
 
 **CC:** Walk me through how you currently consume Nate's Newsletter — where does it arrive, how do you read it, and what do you actually do with it today?
+
 **Ian:** Reads it in email, on Substack, or by watching a YouTube video version. When reading, he often captures key insights in a .md file or downloads a prompt kit attached to the article. Sometimes uses NotebookLM to pull full transcripts of the video. Has also captured screenshots of specific video frames.
 
 **CC:** What counts as a "key takeaway"?
+
 **Ian:** Most of Nate's newsletter pieces have the following parts in the introduction: "Here's what's inside," "This piece is about...," and a "LINK:" where you can download something related. Each of those parts of the intro point to something that is a possible takeaway. Ian will decide what matters to him.
 
 **CC:** What is your "daily briefing"?
+
 **Ian:** The Daily Note surfaced from context/memory when running `/start`. One of the things in that flow should be a reminder to read a .md that has been captured from reading Nate's latest post.
 
 **CC:** What goes wrong if the agent does this poorly?
+
 **Ian:** Could miss something important, or distort the message Nate was trying to communicate. Looking for something more than a subject line and title — like an abstract or digest. Ian might still go read the whole thing online, but wants to make sure he doesn't miss any key items by having that information in his path during the daily workflow.
 
 ---
@@ -30,26 +34,35 @@ CC identified five steps in the workflow and classified each:
 
 **Step 1 — Detect a new post**
 Retrieval task — check for a new email from Nate's newsletter that hasn't been processed yet.
+
 *Q A: Email trigger or Substack RSS?*
+
 **Ian:** Email trigger. Apple Mail MCP is already wired up.
 
 **Step 2 — Fetch the full post content**
 Retrieval task — get post content from the email body (not a web fetch; full post is in the email for paid subscribers).
+
 *Q B: Is the full post in the email or behind a Substack paywall?*
+
 **Ian:** Full post is within the email body. Ian is a paid subscriber — no need to go to the website.
 
 **Step 3 — Extract the structured intro**
 Classification/reasoning task — identify the named sections ("Here's what's inside," "This piece is about...," "LINK:") and extract them faithfully. These sections are guidance for finding what's in the post; if exact headings are missing, look for structural equivalents.
+
 *(No clarifying question needed — covered in Phase 1 answers.)*
 
 **Step 4 — Generate the digest**
 Reasoning task — for each item in the structured intro, locate the corresponding body content and write a substantive summary. The goal is not to restate the marketing teaser ("what nobody's talking about") but to capture what Nate actually argues or finds, drawn from the body. Each bullet must reference a specific claim or concept.
+
 *Q C: How long should the digest be?*
+
 **Ian:** A few bullets explaining what's behind the items listed under "Here's what's inside." The "Here's what's inside" language is marketing copy — engaging, but not informative. The substance is in the body. Each bullet should reference a specific claim or concept from the body, not restate the teaser.
 
 **Step 5 — Write to file and surface in /start**
 Coordination task — save the digest as a new dated section in a single persistent file and have `/start` reference it.
+
 *Q D: Where should the file live, and how should /start surface it?*
+
 **Ian:** One persistent file: `Content/NBJ/NBJ-Digest-Log.md` (create the folder). Each run prepends a new dated section above the previous one, so the file reads newest-first. At the end of a week, section headings would read: Friday — [date], Thursday — [date], etc. `/start` should show a reminder pointing to the file, not inline the digest content. The .md file itself contains the Substack article URL and the abstract.
 
 ---
@@ -57,27 +70,37 @@ Coordination task — save the digest as a new dated section in a single persist
 ### Phase 3: Trust and Failure Analysis
 
 **Step 1 — Email detection**
+
 *Q A: What does Nate's sender address or subject line look like? And if no new post exists, should the agent stay silent or note it?*
+
 **Ian:** Sender: "Nate from Nate's Substack" \<natesnewsletter@substack.com\>. Should note when no new post is found rather than staying silent.
 
 **Step 2 — Email body extraction**
 CC noted: Parsing the email body from HTML is the riskiest retrieval step, as formatting can degrade the quality of input to all downstream steps.
+
 *Q B: If the email body extracts poorly, should the agent fail loudly or make a best-effort attempt?*
+
 **Ian:** Best-effort attempt and flag uncertainty.
 
 **Step 3 — Intro section extraction**
 CC noted: Some posts may not follow the standard structure — different formats, announcement posts, prompt kit drops, etc.
+
 *Q C: What if a post doesn't follow the standard structure?*
+
 **Ian:** Try to extract anyway. Those sections are guidance for finding what's in the post. If exact headings aren't found, look for things like them. The goal is to pull out the gist of what is in the post.
 
 **Step 4 — Digest generation**
 CC noted: The failure mode here is subtle — producing bullets that sound informative but just restate the teaser framing rather than the actual insight.
+
 *Q D: Is there a quality bar to enforce — e.g., each bullet must reference a specific claim from the body?*
+
 **Ian:** Absolutely. Do not just restate the "Here's what's inside" line. Each digest bullet should reference a specific claim or concept from the body.
 
 **Step 5 — File write**
 CC noted: Because the file is now cumulative (not one file per run), the duplicate check must parse the existing file for a section matching this post's date rather than checking for a filename.
+
 *Q E: What happens if the agent runs twice against the same post?*
+
 **Ian:** Second run should note that it has already run and skip making any output. No duplicate section written.
 
 ---
