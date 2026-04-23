@@ -5,7 +5,13 @@ A collection of specs for agents created by **[IEH26git]**(https://github.com/IE
 
 ## Overview
 
-One to start. More to come. <Watch this space!>
+One to start. More to come. *Watch this space!*
+
+## NBJ-Digest Sample Output
+
+<p align="left">
+  <img src="TBD" alt="sample screenshot" width="600">
+</p>
 
 ## Questions or Comments?
 
