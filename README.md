@@ -1,7 +1,7 @@
 # Agent_Specs
 ## What is this?
 
-A collection of specs for agents created by **[IEH26git]**(https://github.com/IEH26git). 
+A collection of specs for agents created by **[IEH26git](https://github.com/IEH26git)**. 
 
 ## Overview
 
@@ -10,7 +10,7 @@ One to start. More to come. *Watch this space!*
 ## NBJ-Digest Sample Output
 
 <p align="left">
-  <img src="https://github.com/IEH26git/Agent_Specs/blob/main/specs/NBJ-digest-log%20sample.png" alt="sample screenshot" width="600">
+  <img src="specs/NBJ-digest-log-sample.png" alt="sample screenshot" width="600">
 </p>
 
 ## Questions or Comments?
