@@ -15,4 +15,6 @@ One to start. More to come. *Watch this space!*
 
 ## Questions or Comments?
 
-Contact me via [Substack](https://substack.com/@pureid) chat with questions or comments. I'm a member of [Nate's Substack Subscriber Chat](https://substack.com/chat/1373231), too.
+- I'm a member of [Nate's Substack Subscriber Chat](https://substack.com/chat/1373231).
+- Contact me via [Substack](https://substack.com/@pureid) chat with questions or comments.  
+- For the truly curious: [2026 AI-powered Portfolio](https://playtheorchestra.lovable.app/)
