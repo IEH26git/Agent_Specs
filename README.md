@@ -4,7 +4,7 @@
 A collection of specs for agents created by **[IEH26git](https://github.com/IEH26git)**. 
 The collection may include some other stuff, too. I hope that's cool. Everything here is offered on a best effort basis.
 
-I'm learning in public like this to "pay it forward." I have learned so much from the brilliant people sharing their products and ideas in the wild. 
+I have learned so much from people sharing their products and ideas in the wild. I'm sharing what I'm learning here to pay it forward.  
 
 ## Overview
 
