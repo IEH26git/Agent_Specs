@@ -8,6 +8,7 @@ I'm learning in public like this to "pay it forward." I have learned so much fro
 
 ## Overview
 
+**[specs/ folder](https://github.com/IEH26git/Agent_Specs/tree/main/specs):** 
 1. Product Spec for an autonomous agent to create a digest of [Nate's Newsletter](https://natesnewsletter.substack.com/) Emails 
 2. Phased protocol for training agents to learn what I want to capture to my Open Brain database (OB1)
 
